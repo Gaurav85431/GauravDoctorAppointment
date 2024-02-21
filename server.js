@@ -1,12 +1,16 @@
 const express = require('express');
 const app = express(); //rest object
 
+const cors = require('cors');
 const colors = require('colors');
 const dotenv = require('dotenv')
 const morgan = require('morgan');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
 
+
+// use cors
+app.use(cors());
 
 // configure .env ko
 // dotenv.config();
