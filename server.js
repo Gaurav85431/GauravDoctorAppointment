@@ -3,11 +3,12 @@ const app = express(); //rest object
 
 const cors = require('cors');
 const colors = require('colors');
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
 const morgan = require('morgan');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
-
+const adminRoutes = require('./routes/adminRoutes');
+const doctorRouter = require('./routes/doctorRoutes');
 
 // use cors
 app.use(cors());
@@ -25,6 +26,9 @@ app.use(morgan('dev'));
 
 // import router
 app.use('/api', userRoutes)
+app.use('/api', adminRoutes)
+app.use('/api', doctorRouter)
+
 
 
 // routes
